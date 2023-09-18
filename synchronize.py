@@ -136,7 +136,7 @@ if __name__ == '__main__':
     # 转化关键点的坐标到同一坐标系
     kpt_all = KptOut(R, t, scale, kpt_s)
 
-    cv_angle = write_smartbody_bvh(prediction, 'cv0')
-    imu_angle = write_smartbody_bvh(kpt_all, 'imu0')
-    synchronize(cv_angle, imu_angle)
+    # cv_angle = write_smartbody_bvh(prediction, 'cv0')
+    # imu_angle = write_smartbody_bvh(kpt_all, 'imu0')
+    # synchronize(cv_angle, imu_angle)
     np.save('./imu_0.npy', kpt_all, allow_pickle=True)
