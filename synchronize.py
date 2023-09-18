@@ -118,16 +118,10 @@ human36m_joints = [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16]
 # joints = [0, 2, 5, 12, 13, 15, 16]
 joints = [0, 2, 5]
 
-# download the imu kpts
-kpts = pd.read_csv("./worldpos.csv", encoding='utf-8')
-kpts = np.array(kpts)[1:, 1:]
-kpt_s = kpts.reshape(kpts.shape[0], -1, 3)[::9]
-kpt_s = kpt_s[:, point_change]
+# download the kpts
+kpt_s = np.load('imu_kpt.npy')
 kpt_imu = kpt_s[0]
-# kpt_imu = kpt_s[::30][0]
-
-# download the cv kpts
-prediction = np.load('./output_0.npy')
+prediction = np.load('cv_kpt.npy')
 kpt_cv = prediction[0]
 
 if __name__ == '__main__':
